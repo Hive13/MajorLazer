@@ -55,6 +55,7 @@ class TimeBalancesController < ApplicationController
 
     @time_balance.user_id = current_user.id if not @time_balance.user_id
     @time_balance.submitted_by_id = current_user.id
+    @time_balance.minutes = 0 if not @time_balance.minutes or @time_balance.minutes == nil
 
     respond_to do |format|
       if @time_balance.save
@@ -78,6 +79,7 @@ class TimeBalancesController < ApplicationController
   # POST /time_balances.json
   def create
     @time_balance = TimeBalance.new(params[:time_balance])
+    @time_balance.minutes = 0 if not @time_balance.minutes or @time_balance.minutes == nil
 
     respond_to do |format|
       if @time_balance.save
