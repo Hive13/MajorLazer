@@ -1,0 +1,5 @@
+This is Major Lazer, Hive13 Lazer accounting app
+
+Built for rails 3.1
+
+rake db:migrate

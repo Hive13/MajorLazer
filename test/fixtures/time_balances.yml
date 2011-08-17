@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  minutes: 1
+  submitted_by_id: 1
+  transaction_time: 2011-08-16 23:09:55
+
+two:
+  user_id: 1
+  minutes: 1
+  submitted_by_id: 1
+  transaction_time: 2011-08-16 23:09:55
