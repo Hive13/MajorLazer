@@ -1,4 +1,4 @@
-<h1>Listing time_balances</h1>
+<h1>Listing Time Balance Transaction logs</h1>
 
 <table>
   <tr>
@@ -13,17 +13,20 @@
 
 <% @time_balances.each do |time_balance| %>
   <tr>
-    <td><%= time_balance.user_id %></td>
+    <td><%= time_balance.user.email %></td>
     <td><%= time_balance.minutes %></td>
-    <td><%= time_balance.submitted_by_id %></td>
-    <td><%= time_balance.transaction_time %></td>
-    <td><%= link_to 'Show', time_balance %></td>
-    <td><%= link_to 'Edit', edit_time_balance_path(time_balance) %></td>
-    <td><%= link_to 'Destroy', time_balance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= User.find(time_balance.submitted_by_id).email %></td>
+    <td><%= time_balance.created_at %></td>
+    <% if can? :manage, :all %>
+      <td><%= link_to 'Show', time_balance %></td>
+      <td><%= link_to 'Edit', edit_time_balance_path(time_balance) %></td>
+      <td><%= link_to 'Destroy', time_balance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Time balance', new_time_balance_path %>
+<%= link_to 'Spend Minutes', new_time_balance_path %> |
+<%= link_to 'Home', home_index_path %>

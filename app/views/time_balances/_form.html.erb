@@ -1,4 +1,6 @@
-<%= form_for(@time_balance) do |f| %>
+You currently have <b><%= current_user.balance %></b> minutes
+
+<%= form_for(@time_balance, :url => time_balances_spend_path) do |f| %>
   <% if @time_balance.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@time_balance.errors.count, "error") %> prohibited this time_balance from being saved:</h2>
@@ -12,22 +14,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
     <%= f.label :minutes %><br />
     <%= f.number_field :minutes %>
   </div>
-  <div class="field">
-    <%= f.label :submitted_by_id %><br />
-    <%= f.number_field :submitted_by_id %>
-  </div>
-  <div class="field">
-    <%= f.label :transaction_time %><br />
-    <%= f.datetime_select :transaction_time %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Spend Minutes'%>
   </div>
 <% end %>

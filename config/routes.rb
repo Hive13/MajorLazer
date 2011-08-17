@@ -8,6 +8,10 @@ MajorLazer::Application.routes.draw do
   devise_for :users
   devise_for :users do get 'logout' => 'devise/sessions#destroy' end
 
+  post "time_balances/spend"
+
+  match "time_balances/:id/add" => "time_balances#add"
+  match "time_balances/:id/spend" => "time_balances#spend"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

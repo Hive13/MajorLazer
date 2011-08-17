@@ -1,4 +1,18 @@
 %h1 Manage Lazer minutes
 %p Click the user below to modify minutes
 
+
+%table
+  %tr
+    %th Email
+    %th Balance
+    %th Action
+  - @users.each do |u|
+    %tr
+      %td=u.email
+      %td=u.balance
+      %td 
+        =link_to 'Add Minutes', :controller => :time_balances, :action => "add", :id => u.id
+
 =link_to 'Home', home_index_path
+

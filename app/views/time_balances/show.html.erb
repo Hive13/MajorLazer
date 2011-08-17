@@ -1,25 +1,20 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>User:</b>
-  <%= @time_balance.user_id %>
+  <%= @time_balance.user.email %>
 </p>
 
 <p>
-  <b>Minutes:</b>
-  <%= @time_balance.minutes %>
+  <% if @time_balance.minutes < 0 %>
+    <b>Minutes spent:</b>
+    <%= @time_balance.minutes.abs %>
+  <% else %>
+     <b>Minutes added:</b>
+     <%= @time_balance.minutes %>
+  <% end %>
 </p>
 
-<p>
-  <b>Submitted by:</b>
-  <%= @time_balance.submitted_by_id %>
-</p>
-
-<p>
-  <b>Transaction time:</b>
-  <%= @time_balance.transaction_time %>
-</p>
-
-
-<%= link_to 'Edit', edit_time_balance_path(@time_balance) %> |
-<%= link_to 'Back', time_balances_path %>
+<% if can? :manage, :all %>
+  <%= link_to 'Edit', edit_time_balance_path(@time_balance) %> |
+<% end %>
+<%= link_to 'Back', time_balances_path %> | 
+<%= link_to 'Home', home_index_path %>

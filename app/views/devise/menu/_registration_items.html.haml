@@ -1,5 +1,8 @@
 -if user_signed_in?
-  %li="Welcome #{current_user.email} (#{get_balance})"
+  %li
+    ="Welcome #{current_user.email} (" 
+    =raw get_balance
+    =")"
   %li=link_to "Your Account", edit_user_registration_path
   -if can? :manage, :all
     %li=link_to 'Manage', admin_index_path

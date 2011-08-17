@@ -1,8 +1,14 @@
 class TimeBalancesController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /time_balances
   # GET /time_balances.json
   def index
-    @time_balances = TimeBalance.all
+    if can? :manage, :all
+      @time_balances = TimeBalance.all
+    else
+      @time_balances = TimeBalance.where(:user_id => current_user.id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,8 +38,39 @@ class TimeBalancesController < ApplicationController
     end
   end
 
+  def add
+    check_admin
+    @user = User.find(params[:id])
+    @time_balances = TimeBalance.new
+  end
+
+  def spend
+    @time_balance = TimeBalance.new(params[:time_balance])
+    # Only admins can spend other users time
+    if cannot? :manage, :all
+      @time_balance.user_id = current_user.id
+    end
+    # Ensure no trickery with negative numbers in spending ;)
+    @time_balance.minutes = -@time_balance.minutes.abs
+
+    @time_balance.user_id = current_user.id if not @time_balance.user_id
+    @time_balance.submitted_by_id = current_user.id
+
+    respond_to do |format|
+      if @time_balance.save
+        format.html { redirect_to @time_balance, :notice => 'Time balance was successfully created.' }
+        format.json { render :json => @time_balance, :status => :created, :location => @time_balance }
+      else
+        format.html { render :action => "new" }
+        format.json { render :json => @time_balance.errors, :status => :unprocessable_entity }
+      end
+    end
+
+  end
+
   # GET /time_balances/1/edit
   def edit
+    check_admin
     @time_balance = TimeBalance.find(params[:id])
   end
 
@@ -56,6 +93,7 @@ class TimeBalancesController < ApplicationController
   # PUT /time_balances/1
   # PUT /time_balances/1.json
   def update
+    check_admin
     @time_balance = TimeBalance.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +110,7 @@ class TimeBalancesController < ApplicationController
   # DELETE /time_balances/1
   # DELETE /time_balances/1.json
   def destroy
+    check_admin
     @time_balance = TimeBalance.find(params[:id])
     @time_balance.destroy
 
