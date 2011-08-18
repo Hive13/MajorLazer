@@ -6,6 +6,7 @@
     <th>Minutes</th>
     <th>Submitted by</th>
     <th>Transaction time</th>
+    <th>Notes</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,11 +18,7 @@
     <td><%= time_balance.minutes %></td>
     <td><%= User.find(time_balance.submitted_by_id).email %></td>
     <td><%= time_balance.created_at %></td>
-    <% if can? :manage, :all %>
-      <td><%= link_to 'Show', time_balance %></td>
-      <td><%= link_to 'Edit', edit_time_balance_path(time_balance) %></td>
-      <td><%= link_to 'Destroy', time_balance, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
+    <td><%= time_balance.notes %></td>
   </tr>
 <% end %>
 </table>

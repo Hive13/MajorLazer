@@ -12,9 +12,10 @@
      <%= @time_balance.minutes %>
   <% end %>
 </p>
+<p>
+  <b>Notes:</b>
+  <%= @time_balance.notes %>
+</p>
 
-<% if can? :manage, :all %>
-  <%= link_to 'Edit', edit_time_balance_path(@time_balance) %> |
-<% end %>
 <%= link_to 'Back', time_balances_path %> | 
 <%= link_to 'Home', home_index_path %>

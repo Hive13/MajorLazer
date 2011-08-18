@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   has_many :time_balances
   has_many :roles
 
+  def name
+    return username if username
+    return email
+  end
+
   def has_role? r
     roles.each do |user_role|
         return true if user_role.name == r

@@ -17,6 +17,10 @@ You currently have <b><%= current_user.balance %></b> minutes
     <%= f.label :minutes %><br />
     <%= f.number_field :minutes %>
   </div>
+  <div class="field">
+    <%= f.label :notes %> (Optional)<br />
+    <%= f.text_field :notes %>
+  </div>
   <div class="actions">
     <%= f.submit 'Spend Minutes'%>
   </div>
