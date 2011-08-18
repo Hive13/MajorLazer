@@ -1,10 +1,14 @@
 <center>
 <h1>Hive13 Lazer Accounting</h1>
 <%= link_to 'Spend your minutes!', new_time_balance_path %>
-  <% if user_signed_in? and not current_user.username %>
+<% if user_signed_in? and not current_user.username %>
     <br><br>
     <div class=alert>
       We see you do not have a username set.  This can lead to your email address being leaked when using the system.  Go <%= link_to 'here', edit_user_registration_path %> to fix it.
     </div>
-  <% end %>
+<% end %>
 </center>
+<br><br>
+<% if user_signed_in? %>
+<%=link_to 'Transfer Minutes', home_transfer_setup_path %>
+<% end %>

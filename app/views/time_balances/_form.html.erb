@@ -15,7 +15,7 @@ You currently have <b><%= current_user.balance %></b> minutes
 
   <div class="field">
     <%= f.label :minutes %><br />
-    <%= f.number_field :minutes %>
+    <%= f.number_field :minutes, {:value => 1} %>
   </div>
   <div class="field">
     <%= f.label :notes %> (Optional)<br />

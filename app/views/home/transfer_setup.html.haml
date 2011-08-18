@@ -1,0 +1,23 @@
+%h1 Transfer Station
+
+-if current_user.balance > 0
+  Select the user and the amount you want to transfer.
+  %br
+  %br
+  Your current balance is:
+  %b= current_user.balance
+  minutes
+  %br
+  %br
+  =form_for(@time_balance, :url => home_transfer_path) do |f|
+    =f.label :transfer_to
+    =select("time_balance","user_id", User.all.collect {|u| [ u.name, u.id] }, {:include_blank => true})
+    =f.label :minutes_to_transfer
+    =f.number_field :minutes, {:value => 1 }
+    =f.submit 'Transfer minutes'
+- else
+  Sorry but you do not have any minutes to transfer
+
+%br
+%br
+= link_to 'Home', home_index_path

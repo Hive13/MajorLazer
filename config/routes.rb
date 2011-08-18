@@ -4,6 +4,8 @@ MajorLazer::Application.routes.draw do
   get "admin/index"
 
   get "home/index"
+  get "home/transfer_setup"
+  post "home/transfer"
 
   devise_for :users
   devise_for :users do get 'logout' => 'devise/sessions#destroy' end

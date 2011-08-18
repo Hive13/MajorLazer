@@ -13,7 +13,7 @@
   =f.hidden_field :submitted_by_id, :value => current_user.id
   .field
     =f.label :Minutes_to_add
-    =f.number_field :minutes
+    =f.number_field :minutes, {:value => 1 }
   .field
     =f.label :Notes
     = "(Optional)"
