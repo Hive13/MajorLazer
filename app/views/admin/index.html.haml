@@ -5,11 +5,13 @@
 %table
   %tr
     %th Email
+    %th Username
     %th Balance
     %th Action
   - @users.each do |u|
     %tr
       %td=u.email
+      %td=u.username
       %td=u.balance
       %td 
         =link_to 'Add Minutes', :controller => :time_balances, :action => "add", :id => u.id
