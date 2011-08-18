@@ -1,0 +1,15 @@
+Hello <%= @account.name %>,
+
+You just had <%= @minutes %> minutes added to your Hive13 lazer account by
+<%= @submitter.name %>.  This brings your total balance to 
+<%= @account.balance %> minutes.
+
+<% if not @notes.empty? %>
+There was a note attached: <%= @notes %>
+
+<% end %>
+Feel free to check the website for new updates: http://lazer.hive13.org/
+
+Happy hacking!
+
+Major Lazer

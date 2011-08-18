@@ -53,4 +53,5 @@ MajorLazer::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.default_url_options = { :host => 'lazer.hive13.org' }
+  config.action_mailer.smtp_settings = { :enable_starttls_auto => false }
 end

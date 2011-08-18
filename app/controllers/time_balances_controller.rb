@@ -83,6 +83,7 @@ class TimeBalancesController < ApplicationController
 
     respond_to do |format|
       if @time_balance.save
+        Notifier.new_minutes(@time_balance).deliver
         format.html { redirect_to @time_balance, :notice => 'Time balance was successfully created.' }
         format.json { render :json => @time_balance, :status => :created, :location => @time_balance }
       else
