@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
   has_many :time_balances
+  has_many :free_minutes
   has_many :roles
 
   def name
@@ -25,4 +26,17 @@ class User < ActiveRecord::Base
   def balance
     time_balances.to_a.sum(&:minutes)
   end
+
+  def free_balance
+    free_minutes.where('expire_on >= NOW()').to_a.sum(&:minutes)
+  end
+
+  def last_free_minute
+    free_minutes.where('expire_on >= NOW()').limit(1).last
+  end
+
+  def full_balance
+    balance + free_balance
+  end
+
 end

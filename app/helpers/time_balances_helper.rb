@@ -2,7 +2,7 @@ module TimeBalancesHelper
 
   def get_balance
     return "0m" if not current_user
-    bal = current_user.balance
+    bal = current_user.full_balance
     if bal > 0
       return "<font color=green>#{bal}</font>m"
     elsif bal < 0

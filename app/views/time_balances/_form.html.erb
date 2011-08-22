@@ -1,4 +1,10 @@
-You currently have <b><%= current_user.balance %></b> minutes
+<center>
+You have <font color=green><%=current_user.free_balance %> free</font> minutes remaining.
+<% if current_user.last_free_minute %>
+ (<%= current_user.last_free_minute.expire_on %>)
+<% end %>
+<br>
+You have <b><%= current_user.full_balance %></b> total minutes
 
 <%= form_for(@time_balance, :url => time_balances_spend_path) do |f| %>
   <% if @time_balance.errors.any? %>
@@ -13,15 +19,28 @@ You currently have <b><%= current_user.balance %></b> minutes
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :minutes %><br />
-    <%= f.number_field :minutes, {:value => 1} %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %> (Optional)<br />
-    <%= f.text_field :notes %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Spend Minutes'%>
-  </div>
+  <table>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :minutes %><br />
+          <%= f.number_field :minutes, {:value => 1} %>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.label :notes %> (Optional)<br />
+          <%= f.text_field :notes %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <div class="actions">
+          <%= f.submit 'Spend Minutes'%>
+        </div>
+      </td>
+    </tr>
+  </table>
+</center>
 <% end %>

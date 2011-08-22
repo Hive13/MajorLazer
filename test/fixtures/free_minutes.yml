@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  minutes: 1
+  expire_on: 2011-08-22 11:51:42
+  notes: MyString
+
+two:
+  user_id: 1
+  minutes: 1
+  expire_on: 2011-08-22 11:51:42
+  notes: MyString

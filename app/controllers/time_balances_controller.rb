@@ -50,8 +50,26 @@ class TimeBalancesController < ApplicationController
     if cannot? :manage, :all
       @time_balance.user_id = current_user.id
     end
+    @time_balance.user_id = current_user.id if not @time_balance.user_id
+
     # Ensure no trickery with negative numbers in spending ;)
     @time_balance.minutes = -@time_balance.minutes.abs
+
+    if current_user.free_balance > 0 then
+      free_balance = FreeMinute.new
+      if current_user.free_balance >= @time_balance.minutes.abs
+        free_balance.minutes = @time_balance.minutes
+        @time_balance.minutes = 0
+      else
+        free_balance.minutes = -current_user.free_balance
+        @time_balance.minutes -= current_user.free_balance
+      end
+      free_balance.user_id = @time_balance.user_id
+      free_balance.notes = @time_balance.notes
+      @time_balance.notes = "#{@time_balance.notes} (#{free_balance.minutes.abs} Free minutes used)"
+      free_balance.expire_on = current_user.last_free_minute.expire_on
+      free_balance.save!
+    end
 
     @time_balance.user_id = current_user.id if not @time_balance.user_id
     @time_balance.submitted_by_id = current_user.id
