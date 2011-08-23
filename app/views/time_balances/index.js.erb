@@ -1,0 +1,3 @@
++$('#time_balances').html('<%= escape_javascript render(@time_balances) %>');
+ 	2	
++$('#paginator').html('<%= escape_javascript(paginate(@time_balances, :remote => true).to_s) %>');

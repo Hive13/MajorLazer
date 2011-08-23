@@ -12,6 +12,7 @@ class TimeBalancesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render :json => @time_balances }
     end
   end
