@@ -11,6 +11,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'cancan'
 gem 'haml'
+gem 'kaminari'
 
 # Asset template engines
 gem 'sprockets'

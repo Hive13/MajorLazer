@@ -1,6 +1,6 @@
 <center>
 You have <font color=green><%=current_user.free_balance %> free</font> minutes remaining.
-<% if current_user.last_free_minute %>
+<% if current_user.last_free_minute and current_user.free_balance > 0 %>
  (<%= current_user.last_free_minute.expire_on %>)
 <% end %>
 <br>

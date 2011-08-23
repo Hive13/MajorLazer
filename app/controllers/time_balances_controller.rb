@@ -5,9 +5,9 @@ class TimeBalancesController < ApplicationController
   # GET /time_balances.json
   def index
     if can? :manage, :all
-      @time_balances = TimeBalance.all
+      @time_balances = TimeBalance.order("created_at desc" ).page params[:page]
     else
-      @time_balances = TimeBalance.where(:user_id => current_user.id)
+      @time_balances = TimeBalance.where(:user_id => current_user.id).order("created_at desc").page params[:page]
     end
 
     respond_to do |format|
@@ -62,7 +62,7 @@ class TimeBalancesController < ApplicationController
         @time_balance.minutes = 0
       else
         free_balance.minutes = -current_user.free_balance
-        @time_balance.minutes -= current_user.free_balance
+        @time_balance.minutes += current_user.free_balance
       end
       free_balance.user_id = @time_balance.user_id
       free_balance.notes = @time_balance.notes
