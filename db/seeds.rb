@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+["Non-Member", "Elite", "Full", "Cornerstone"].each do |name|
+  MembershipLevel.create(:name => name)
+end

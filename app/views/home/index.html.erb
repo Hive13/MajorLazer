@@ -11,4 +11,19 @@
 <br><br>
 <% if user_signed_in? %>
 <%=link_to 'Transfer Minutes', home_transfer_setup_path %>
+<br>
+<%=link_to 'Schedule Laser Time', home_schedule_path %>
+<br>
+Buy more Laser minutes: $30/hour<br>
+<!-- Change the below code if you have a different button -->
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="ZJ8V5HJQVT5KN">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<% if not current_user.member %>
+Become a member of Hive13 today! <%=link_to "Membership Details", "http://www.hive13.org/?page_id=13" %>
+<% end %>
+
 <% end %>

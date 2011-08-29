@@ -4,14 +4,20 @@
 
 %table
   %tr
+    %th 
     %th Email
     %th Username
+    %th Member Level
     %th Balance
     %th Action
   - @users.each do |u|
     %tr
+      %td
+        -if u.certified
+          *
       %td=u.email
       %td=u.username
+      %td=link_to u.member_level, :action => "edit_user", :id => u.id
       %td=u.balance
       %td 
         =link_to 'Add Minutes', :controller => :time_balances, :action => "add", :id => u.id

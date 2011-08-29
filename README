@@ -6,5 +6,7 @@ Built for rails 3.1.0.rc5
 
  rake db:migrate
 
+ rake db:seed
+
  rails server
 

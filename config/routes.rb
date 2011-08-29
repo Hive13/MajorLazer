@@ -5,6 +5,7 @@ MajorLazer::Application.routes.draw do
 
   get "home/index"
   get "home/transfer_setup"
+  get "home/schedule"
   post "home/transfer"
 
   devise_for :users
@@ -14,6 +15,8 @@ MajorLazer::Application.routes.draw do
 
   match "time_balances/:id/add" => "time_balances#add"
   match "time_balances/:id/spend" => "time_balances#spend"
+  match "admin/:id/edit_user" => "admin#edit_user"
+  match "admin/edited_user" => "admin#edited_user", :via => :put
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

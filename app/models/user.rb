@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :time_balances
   has_many :free_minutes
   has_many :roles
+  belongs_to :membership_level
 
   def name
     return username if username
@@ -37,6 +38,13 @@ class User < ActiveRecord::Base
 
   def full_balance
     balance + free_balance
+  end
+
+  def member_level
+    if member then
+      return membership_level.name
+    end
+    return "Non-Member"
   end
 
 end
