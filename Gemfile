@@ -9,12 +9,13 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'mysql2'
 gem 'devise'
+gem 'devise_lastseenable'
 gem 'cancan'
 gem 'haml'
 gem 'kaminari'
 
 # Asset template engines
-gem 'sprockets'
+gem 'sprockets', "2.0.0.beta.14"
 gem 'json'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'

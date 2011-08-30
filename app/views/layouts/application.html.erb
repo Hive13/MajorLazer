@@ -9,14 +9,23 @@
 </head>
 <body>
 
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert"><%= alert %></p>
+<% end %> 
+
+<div id="topPan">
 <ul class="hmenu">
   <%= render 'devise/menu/registration_items' %>
   <%= render 'devise/menu/login_items' %>
 </ul>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+ <div id="main">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

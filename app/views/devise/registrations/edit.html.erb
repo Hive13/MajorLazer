@@ -1,4 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1 class="header">Edit <%= resource_name.to_s.humanize %></h1>
+<div id="bodyPan">
+<h2>Account Settings</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -38,3 +40,6 @@ Buy more minutes: $30/hour
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
 <%= link_to "Back", :back %>
+</div>
+<div id="bodybottomPan">&nbsp;</div>
+

@@ -1,31 +1,36 @@
-%h1 Manage Lazer minutes
-%p Click the user below to modify minutes
-
-
-%table
-  %tr
-    %th 
-    %th Email
-    %th Username
-    %th Member Level
-    %th Balance
-    %th Last login
-    %th Action
-  - @users.each do |u|
+%h1.header Manage Lazer minutes
+#bodyPanWide
+  %h2 Manage Lazer minutes
+  %p Click the user below to modify minutes
+  
+  
+  %table
     %tr
-      %td
-        -if u.certified
-          *
-      %td=u.email
-      %td=u.username
-      %td=link_to u.member_level, :action => "edit_user", :id => u.id
-      %td=u.balance
-      %td=time_ago_in_words(u.last_sign_in_at)
-      %td 
-        =link_to 'Add Minutes', :controller => :time_balances, :action => "add", :id => u.id
-=paginate @users
-%br
-=link_to 'Transaction Logs', time_balances_path
-|
-=link_to 'Home', home_index_path
-
+      %th 
+      %th Email
+      %th Username
+      %th Member Level
+      %th Balance
+      %th Last Seen
+      %th Action
+    - @users.each do |u|
+      %tr
+        %td
+          -if u.certified
+            *
+        %td=u.email
+        %td=u.username
+        %td=link_to u.member_level, :action => "edit_user", :id => u.id
+        %td=u.balance
+        %td
+          - if u.last_seen
+            =time_ago_in_words(u.last_seen)
+          - else
+            No info
+        %td 
+          =link_to 'Add Minutes', :controller => :time_balances, :action => "add", :id => u.id
+  =paginate @users
+  %br
+  =link_to 'Transaction Logs', time_balances_path
+  |
+  =link_to 'Home', home_index_path

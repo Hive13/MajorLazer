@@ -1,25 +1,28 @@
-%h1="Modify user #{@user.name}"
-=form_for(@user, :url => admin_edited_user_path) do |f| 
-  -if @user.errors.any? 
-    #error_explanation
-      %h2
-        =pluralize(@user.errors.count, "error")
-        prohibited this time_balance from being saved:
-    %ul
-      =@user.errors.full_messages.each do |msg| 
-        %li=msg
-
-  #field
-    = f.hidden_field :id
-  #field
-    = f.label :certified
-    = f.check_box :certified
-  #field
-    = f.label :membership_level
-    - if @user.membership_level then
-      = select("membership_level", "name", MembershipLevel.all.collect { |ml| [ ml.name, ml.id] }, {:selected => @user.membership_level.id})
-    - else
-      = select("membership_level", "name", MembershipLevel.all.collect { |ml| [ ml.name, ml.id] }, {:selected => nil})
-  #actions
-    = f.submit 'Modify User'
-=link_to 'Back', admin_index_path
+%h1.header
+#bodyPan
+  %h2="Modify user #{@user.name}"
+  =form_for(@user, :url => admin_edited_user_path) do |f| 
+    -if @user.errors.any? 
+      #error_explanation
+        %h2
+          =pluralize(@user.errors.count, "error")
+          prohibited this time_balance from being saved:
+      %ul
+        =@user.errors.full_messages.each do |msg| 
+          %li=msg
+  
+    #field
+      = f.hidden_field :id
+    #field
+      = f.label :certified
+      = f.check_box :certified
+    #field
+      = f.label :membership_level
+      - if @user.membership_level then
+        = select("membership_level", "name", MembershipLevel.all.collect { |ml| [ ml.name, ml.id] }, {:selected => @user.membership_level.id})
+      - else
+        = select("membership_level", "name", MembershipLevel.all.collect { |ml| [ ml.name, ml.id] }, {:selected => nil})
+    #actions
+      = f.submit 'Modify User'
+  =link_to 'Back', admin_index_path
+#bodybottomPan

@@ -1,29 +1,34 @@
-<center>
-<h1>Hive13 Lazer Accounting</h1>
-<%= link_to 'Spend your minutes!', new_time_balance_path %>
+<h1 class="header">Hive13 Lazer Manager</h1>
 <% if user_signed_in? and not current_user.username %>
     <br><br>
     <div class=alert>
       We see you do not have a username set.  This can lead to your email address being leaked when using the system.  Go <%= link_to 'here', edit_user_registration_path %> to fix it.
     </div>
 <% end %>
-</center>
-<br><br>
 <% if user_signed_in? %>
-<%=link_to 'Transfer Minutes', home_transfer_setup_path %>
-<br>
-<%=link_to 'Schedule Laser Time', home_schedule_path %>
-<br>
-Buy more Laser minutes: $30/hour<br>
-<!-- Change the below code if you have a different button -->
+<div id="toplinkPan">
+  <div id="toplinkfirstPan">
+<%= link_to '', new_time_balance_path %>
+  </div>
+  <div id="toplinksecondPan">
+    <%=link_to '', home_transfer_setup_path %>
+  </div>
+  <div id="toplinkthirdPan">
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="ZJ8V5HJQVT5KN">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<input type="image" src="/assets/buy-normal.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 </form>
+
+  </div>
+</div>
+<div id="bodyPan">
+<br>
+<h2>More Info?</h2>
+<%=link_to 'Schedule Laser Time', home_schedule_path %>
 <% if not current_user.member %>
 Become a member of Hive13 today! <%=link_to "Membership Details", "http://www.hive13.org/?page_id=13" %>
 <% end %>
-
+</div>
+<div id="bodybottomPan">&nbsp;</div>
 <% end %>

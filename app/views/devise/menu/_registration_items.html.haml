@@ -1,15 +1,10 @@
 -if user_signed_in?
-  %li
-    ="Welcome "
-    - if not current_user.username
-      =current_user.email
-    - else
-      =current_user.username
-    =" (" 
+  #welcome
+    ="Welcome #{current_user.name} ("
     =raw get_balance
-    =")"
-  %li=link_to "Your Account", edit_user_registration_path
+    )
+  %li.menupadding=link_to "Your Account", edit_user_registration_path
   -if can? :manage, :all
-    %li=link_to 'Manage', admin_index_path
+    %li.menupadding=link_to 'Manage', admin_index_path
 -else
-  %li=link_to 'Register', new_user_registration_path
+  %li.menupadding=link_to 'Register', new_user_registration_path

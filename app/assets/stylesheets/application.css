@@ -5,11 +5,81 @@
  *= require_self
  *= require_tree . 
 */
+
+body{background:url(main-bg.gif) 0 0 repeat-x #A8A39D; color:#1A1917; margin:84px 0 0; padding:0; font:14px/20px Arial, Helvetica, sans-serif;}
+div, p, h1, h2, h3, ul{padding:0px; margin:0px;}
 ul.hmenu {
   list-style: none;	
   margin: 0 0 2em;
   padding: 0;
 }
+
+/*--TOP PANEL--*/
+#topPan{width:464px; height:410px; position:relative; margin:0 auto;}
+#topPan ul {width:464px;}
+#topPan ul li{float:left; font:12px/30px "Trebuchet MS", Arial, Helvetica, sans-serif; font-weight:bold; text-transform:uppercase;} 
+#topPan ul li a{width:92px; height:30px; display:block; background:url(menubg-normal.gif) 0 0 no-repeat #66605B; color:#FDFDFD;  text-decoration:none; text-align:center;}
+#topPan ul li a:hover{background:url(menubg-hover.gif) 0 0 no-repeat #66605B; color:#1A1917;}
+#topPan ul li.menupadding{margin:0 0 0 1px;}
+/*
+#topPan ul li.home{width:92px; height:30px; display:block; background:url(menubg-hover.gif) 0 0 no-repeat #FDFDFD; color:#1A1917; text-align:center;} */
+
+#topPan h1.header{display:block; width:464px; height:210px; background:url(header.gif) 0 0 no-repeat; text-indent:-2000px; margin:0; clear:both;}
+#toplinkPan{width:464px; height:159px; position:relative; margin:0 auto;}
+#toplinkfirstPan{width:148px; height:140px; float:left; background:url(spend-normal.png) 0 0 no-repeat #5B5550; margin:8px 0 0; color:#fff;}
+#toplinkfirstPan a{text-decoration:none; display:block; width:148px; height:140px;}
+#toplinkfirstPan a:hover{text-decoration:none; background:url(spend-hover.png) 0 0 no-repeat;}
+#toplinkfirstPan p{display:block; width:90px; height:15px; position:absolute; top:0px; left:0px; font:12px/14px "Trebuchet MS", Arial, Helvetica, sans-serif; margin:54px 0 0 21px;}
+
+#toplinksecondPan{width:148px; height:140px; float:left; background:url(transfer-normal.png) 0 0 no-repeat #5B5550; margin:8px 10px 0; color:#fff;}
+#toplinksecondPan a{text-decoration:none; display:block; width:148px; height:140px;}
+#toplinksecondPan a:hover{text-decoration:none; background:url(transfer-hover.png) 0 0 no-repeat;}
+
+#toplinksecondPan p{display:block; width:90px; height:15px; position:absolute; top:0px; left:157px; font:12px/14px "Trebuchet MS", Arial, Helvetica, sans-serif; margin:54px 0 0 21px; }
+
+#toplinkthirdPan{width:148px; height:140px; float:left; background:url(buy-normal.png) 0 0 no-repeat #5B5550; margin:8px 0 0; color:#fff;}
+#toplinkthirdPan a{text-decoration:none; display:block; width:148px; height:140px;}
+#toplinkthirdPan a:hover{text-decoration:none; background:url(buy-hover.png) 0 0 no-repeat;}
+#toplinkthirdPan p{display:block; width:90px; height:15px; position:absolute; top:0px; right:34px; font:12px/14px "Trebuchet MS", Arial, Helvetica, sans-serif; margin:54px 0 0 21px; }
+
+#welcome {
+  position:fixed;
+  top:0px;
+  right:0px;
+  background:url(welcomebg.jpg) 0 0 repeat;
+  padding: 5px;
+}
+
+#welcomecorner {
+display:block; width:7px; height:16px; background:url(welcomecorner.png) 0 0 no-repeat; margin:0;
+}
+
+#main {
+  background-color: #white;
+}
+
+.notice {
+  background-color: #bcebe1;
+  position: fixed;
+  top:15px;
+  left:15px;
+  padding: 5px;
+  border:2px solid;
+  border-radius:15px;
+  -moz-border-radius:15px;
+}
+
+.alert {
+  background-color: #ff0300;
+  position: fixed;
+  padding: 15px;
+  top:15px;
+  left:5px;
+  border:2px solid;
+  border-radius:15px;
+  -moz-border-radius:15px;
+}
+
 
 ul.hmenu li {
   display: inline;  

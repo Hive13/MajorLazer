@@ -1,26 +1,31 @@
-%h1="Add minutes to #{@user.email}"
-%p="Currently has #{@user.balance} minutes"
-=form_for(@time_balances) do |f|
-  -if @time_balances.errors.any? 
-    #error_explanation
-      %h2="#{pluralize(@time_balances.errors.count, "error")} prohibited this balance from being saved:"
-
-      %ul
-      =@time_balances.errors.full_messages.each do |msg| 
-        %li=msg
-
-  =f.hidden_field :user_id, :value => @user.id
-  =f.hidden_field :submitted_by_id, :value => current_user.id
-  .field
-    =f.label :Minutes_to_add
-    =f.number_field :minutes, {:value => 1 }
-  .field
-    =f.label :Notes
-    = "(Optional)"
-    =f.text_field :notes
-  .actions
-    =f.submit 'Add Minutes'
-
-%br
-=link_to 'Manage', admin_index_path
-=link_to 'Home', home_index_path
+%h1.header
+#bodyPan
+  %h2="Add minutes to #{@user.name}"
+  %br
+  %br
+  %p="Currently has #{@user.balance} minutes"
+  =form_for(@time_balances) do |f|
+    -if @time_balances.errors.any? 
+      #error_explanation
+        %h2="#{pluralize(@time_balances.errors.count, "error")} prohibited this balance from being saved:"
+  
+        %ul
+        =@time_balances.errors.full_messages.each do |msg| 
+          %li=msg
+  
+    =f.hidden_field :user_id, :value => @user.id
+    =f.hidden_field :submitted_by_id, :value => current_user.id
+    .field
+      =f.label :Minutes_to_add
+      =f.number_field :minutes, {:value => 1 }
+    .field
+      =f.label :Notes
+      = "(Optional)"
+      =f.text_field :notes
+    .actions
+      =f.submit 'Add Minutes'
+  
+  %br
+  =link_to 'Manage', admin_index_path
+  =link_to 'Home', home_index_path
+#bodybottomPan 
