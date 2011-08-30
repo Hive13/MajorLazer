@@ -9,6 +9,7 @@
     %th Username
     %th Member Level
     %th Balance
+    %th Last login
     %th Action
   - @users.each do |u|
     %tr
@@ -19,9 +20,11 @@
       %td=u.username
       %td=link_to u.member_level, :action => "edit_user", :id => u.id
       %td=u.balance
+      %td=time_ago_in_words(u.last_sign_in_at)
       %td 
         =link_to 'Add Minutes', :controller => :time_balances, :action => "add", :id => u.id
-
+=paginate @users
+%br
 =link_to 'Transaction Logs', time_balances_path
 |
 =link_to 'Home', home_index_path

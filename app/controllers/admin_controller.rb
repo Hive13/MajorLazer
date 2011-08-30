@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_filter :check_admin
 
   def index
-    @users = User.all
+    @users = User.order("last_sign_in_at desc").page params[:page]
   end
 
   def edit_user
