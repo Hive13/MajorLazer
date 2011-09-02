@@ -1,0 +1,16 @@
+table#wide
+{
+  width:750px;
+  border-collapse:collapse;
+  border:none;
+}
+
+tr.odd
+{
+  background-color:#fff;
+}
+
+tr.even
+{
+  background-color:#ececec;
+}

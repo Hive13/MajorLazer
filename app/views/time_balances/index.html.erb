@@ -1,9 +1,11 @@
-<h1 class="header">Time Balance</h1>
+<%= link_to home_index_path do %>
+  <h1 class="header">Time Balance</h1>
+<% end %>
 
 <div id="bodyPanWide">
 <h2>Transaction logs</h2>
 
-<table>
+<table id="wide">
   <tr>
     <th>User</th>
     <th>Minutes</th>
@@ -16,7 +18,7 @@
   </tr>
 
 <% @time_balances.each do |time_balance| %>
-  <tr>
+  <tr class="<%=cycle('odd', 'even') %>">
     <td><%= time_balance.user.email %></td>
     <td><%= time_balance.minutes %></td>
     <td><%= User.find(time_balance.submitted_by_id).name %></td>

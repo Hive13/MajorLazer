@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -15,9 +15,9 @@ gem 'haml'
 gem 'kaminari'
 
 # Asset template engines
-gem 'sprockets', "2.0.0.beta.14"
+gem 'sprockets'
 gem 'json'
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 

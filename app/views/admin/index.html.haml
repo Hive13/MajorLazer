@@ -1,10 +1,11 @@
-%h1.header Manage Lazer minutes
+=link_to home_index_path do  
+  %h1.header Manage Lazer minutes
 #bodyPanWide
   %h2 Manage Lazer minutes
   %p Click the user below to modify minutes
   
   
-  %table
+  %table#wide
     %tr
       %th 
       %th Email
@@ -14,10 +15,10 @@
       %th Last Seen
       %th Action
     - @users.each do |u|
-      %tr
+      %tr{ :class => cycle('odd', 'even') }
         %td
           -if u.certified
-            *
+            =image_tag "lazercert.png", :alt => "Certified"
         %td=u.email
         %td=u.username
         %td=link_to u.member_level, :action => "edit_user", :id => u.id

@@ -1,5 +1,7 @@
 -if user_signed_in?
   #welcome
+    - if current_user.certified
+      =image_tag "lazercert.png", :alt=>"Certified", :title=>"Certified"
     ="Welcome #{current_user.name} ("
     =raw get_balance
     )

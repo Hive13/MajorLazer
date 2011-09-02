@@ -12,10 +12,14 @@
   border-radius:20px;
   -moz-border-radius:20px;
   padding: 10px;
-  float: left;
+  position:relative;
+  left:-150px;
+  width:750px;
+/*  float: left; */
 }
 
-#bodyPanWide h1{width:352px; height:32px; display:block; background:url(images/welcomebg.gif) 0 100% repeat-x; font:28px/26px Georgia, "Times New Roman", Times, serif; padding:42px 0 0;}
+#bodyPanWide h1{
+  width:352px; height:32px; display:block; background:url(images/welcomebg.gif) 0 100% repeat-x; font:28px/26px Georgia, "Times New Roman", Times, serif; padding:42px 0 0;}
 #bodyPanWide h1 span{background:#F9F9F9; color:#9A0000; font-size:26px;}
 #bodyPanWide h2{width:450px; height:32px; display:block; background:url(dotline.gif) 0 100% repeat-x #fff; font:28px/26px Georgia, "Times New Roman", Times, serif; padding:42px 0 0; color:#9A0000;}
 
