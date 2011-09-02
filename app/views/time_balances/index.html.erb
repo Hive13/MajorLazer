@@ -22,7 +22,7 @@
     <td><%= time_balance.user.email %></td>
     <td><%= time_balance.minutes %></td>
     <td><%= User.find(time_balance.submitted_by_id).name %></td>
-    <td><%= time_balance.created_at %></td>
+    <td><%= time_tag time_balance.created_at %></td>
     <td><%= time_balance.notes %></td>
   </tr>
 <% end %>

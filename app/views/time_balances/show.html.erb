@@ -4,6 +4,11 @@
 <div id="bodyPan">
 <h2>Receipt</h2>
 <p>
+  <b>Date:</b>
+  <%= time_tag @time_balance.created_at %>
+</p>
+
+<p>
   <b>User:</b>
   <%= @time_balance.user.email %>
 </p>
@@ -21,7 +26,6 @@
   <b>Notes:</b>
   <%= @time_balance.notes %>
 </p>
-
 <%= link_to 'Back', time_balances_path %> | 
 <%= link_to 'Home', home_index_path %>
 </div>
