@@ -3,7 +3,14 @@
 <% end %>
 
 <div id="bodyPanWide">
-<h2>Transaction logs</h2>
+<% if @target_id and can? :manage, :all %>
+  <% target = User.find(@target_id) %>
+  <% if target %>
+    <h2>Transaction logs for <%= target.name %></h2>
+  <% end %>
+<% else %>
+  <h2>Transaction logs</h2>
+<% end %>
 
 <table id="wide">
   <tr>
@@ -19,11 +26,11 @@
 
 <% @time_balances.each do |time_balance| %>
   <tr class="<%=cycle('odd', 'even') %>">
-    <td><%= time_balance.user.email %></td>
-    <td><%= time_balance.minutes %></td>
-    <td><%= User.find(time_balance.submitted_by_id).name %></td>
-    <td><%= time_tag time_balance.created_at %></td>
-    <td><%= time_balance.notes %></td>
+    <td id=email><%= time_balance.user.email %></td>
+    <td id=minutes><%= time_balance.minutes %></td>
+    <td id=submitted_by><%= User.find(time_balance.submitted_by_id).name %></td>
+    <td id=created_at><%= time_tag time_balance.created_at %></td>
+    <td id=notes><%= time_balance.notes %></td>
   </tr>
 <% end %>
 </table>

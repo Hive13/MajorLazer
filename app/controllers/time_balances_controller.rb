@@ -5,7 +5,12 @@ class TimeBalancesController < ApplicationController
   # GET /time_balances.json
   def index
     if can? :manage, :all
-      @time_balances = TimeBalance.order("created_at desc" ).page params[:page]
+      @target_id = params[:target_id]
+      if @target_id then
+        @time_balances = TimeBalance.where(:user_id => @target_id).order("created_at desc" ).page params[:page]
+      else
+        @time_balances = TimeBalance.order("created_at desc" ).page params[:page]
+      end
     else
       @time_balances = TimeBalance.where(:user_id => current_user.id).order("created_at desc").page params[:page]
     end

@@ -22,7 +22,7 @@
         %td=u.email
         %td=u.username
         %td=link_to u.member_level, :action => "edit_user", :id => u.id
-        %td=u.balance
+        %td=link_to u.balance, :controller => "time_balances", :action => "index", :target_id => u.id
         %td
           - if u.last_seen
             =time_ago_in_words(u.last_seen)

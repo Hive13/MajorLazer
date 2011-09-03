@@ -50,6 +50,11 @@ ul.hmenu {
   padding: 5px;
 }
 
+.welcomecert {
+  position: relative;
+  top: 4px;
+}
+
 #welcomecorner {
 display:block; width:7px; height:16px; background:url(welcomecorner.png) 0 0 no-repeat; margin:0;
 }
