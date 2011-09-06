@@ -14,6 +14,7 @@
     %br
     =form_for(@time_balance, :url => home_transfer_path) do |f|
       =f.label :transfer_to
+      //=text_field 'username', '', :autocomplete => time_balances_autocomplete_user_username_path
       =select("time_balance","user_id", User.all.collect {|u| [ u.name, u.id] }, {:include_blank => true})
       %br
       =f.label :minutes_to_transfer

@@ -13,6 +13,7 @@ gem 'devise_lastseenable'
 gem 'cancan'
 gem 'haml'
 gem 'kaminari'
+gem 'rails3-jquery-autocomplete'
 
 # Asset template engines
 gem 'sprockets'

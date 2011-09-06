@@ -1,4 +1,5 @@
 class TimeBalancesController < ApplicationController
+  autocomplete :user, :username, :full => true
   before_filter :authenticate_user!
   
   # GET /time_balances

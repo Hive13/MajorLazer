@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   has_many :roles
   belongs_to :membership_level
 
+  scope :search_by_name, lambda { |q|
+    (q ? where(["email LIKE ? or username LIKE ?", '%' + q + '%', '%' + q + '%' ]) : {})
+  }
+
   def name
     return username if username
     return email

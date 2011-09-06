@@ -1,6 +1,8 @@
 MajorLazer::Application.routes.draw do
   resources :time_balances
 
+  get "time_balances/autocomplete_user_username"
+
   get "admin/index"
 
   get "home/index"
