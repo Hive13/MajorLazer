@@ -2,6 +2,27 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
 
   def index
+    # TODO - Make this a DB entry
+    reset_at = '2011-10-22'
+    minutes_spent = TimeBalance.where("minutes < 0 and created_at > '#{reset_at}'")
+    free_spent = FreeMinute.where("minutes < 0 and created_at > '#{reset_at}'")
+    @total_spent = 0
+    @last_spent = 0
+    last_date = reset_at
+    minutes_spent.each do |min|
+      @total_spent += min.minutes.abs
+      if min.created_at > last_date then
+        @last_spent = min.minutes.abs 
+        last_date = min.created_at
+      end
+    end
+    free_spent.each do |min|
+      @total_spent += min.minutes.abs
+      if min.created_at > last_date then
+        @last_spent = min.minutes.abs 
+        last_date = min.created_at
+      end
+    end
   end
 
   def transfer_setup 

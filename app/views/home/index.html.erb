@@ -31,4 +31,26 @@ Become a member of Hive13 today! <%=link_to "Membership Details", "http://www.hi
 <% end %>
 </div>
 <div id="bodybottomPan">&nbsp;</div>
+<div id="bulbUsage">
+  Laser Bulb usage in minutes
+  <div id="odometerDiv" style="width:100%"></div>
+</div>
+<script type="text/javascript">
+                  //<![CDATA[
+                        var n = <%= @total_spent-@last_spent%>;
+                        var myOdometer;
+                        var div = document.getElementById("odometerDiv")
+
+                        myOdometer = new Odometer(div, {value: n, digitHeight:20});
+                        update();
+
+                        function update () {
+                                n=n+0.5
+                                if(n <= <%= @total_spent %>) {
+                                  myOdometer.set(n);
+                                  setTimeout("update()", 100);
+                                }
+                        }
+                //]]>
+</script>
 <% end %>

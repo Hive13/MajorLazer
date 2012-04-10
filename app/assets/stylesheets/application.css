@@ -60,7 +60,6 @@ display:block; width:7px; height:16px; background:url(welcomecorner.png) 0 0 no-
 }
 
 #main {
-  background-color: #white;
 }
 
 .notice {
@@ -88,4 +87,9 @@ display:block; width:7px; height:16px; background:url(welcomecorner.png) 0 0 no-
 
 ul.hmenu li {
   display: inline;  
+}
+
+#bulbUsage {
+  padding-left: 150px;
+  margin: 0 auto;
 }
